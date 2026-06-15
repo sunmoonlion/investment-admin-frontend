@@ -180,8 +180,8 @@ export default defineConfig(({ mode, command }) => {
           VitePWA({
             injectRegister: 'auto',
             manifest: {
-              name: 'Tpl Admin CSR',
-              short_name: 'Tpl Admin',
+              name: 'Investment Admin CSR',
+              short_name: 'Investment Admin',
               theme_color: '#ffffff',
               icons: [
                 {

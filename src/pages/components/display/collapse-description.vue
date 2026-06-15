@@ -15,7 +15,7 @@ definePage({
 const data = ref([
   {
     label: '姓名',
-    value: 'Tpl Admin',
+    value: 'Investment Admin',
     icon: {
       icon: 'mdi:user',
       class: 'text-xl'
