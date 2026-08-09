@@ -5,6 +5,7 @@ const nextPort = Number(process.env.NEXT_PORT ?? 3008)
 const externalBaseURL = process.env.PLAYWRIGHT_BASE_URL
 const baseURL = externalBaseURL ?? `http://127.0.0.1:${gatewayPort}`
 const pairBackendPort = Number(process.env.PAIR_FIXTURE_PORT ?? 18080)
+const pairBackendProject = process.env.PAIR_BACKEND_PROJECT ?? '../../investment-backend/app'
 const reuseExistingServer = process.env.PLAYWRIGHT_REUSE_SERVER === '1'
 
 export default defineConfig({
@@ -24,7 +25,7 @@ export default defineConfig({
     ? undefined
     : [
         {
-          command: 'node scripts/admin-pair-fixture.mjs',
+          command: `uv run --project ${pairBackendProject} --frozen python -m uvicorn --app-dir ${pairBackendProject} scripts.pair_fixture:app --host 127.0.0.1 --port ${pairBackendPort}`,
           url: `http://127.0.0.1:${pairBackendPort}/api/health`,
           reuseExistingServer,
           timeout: 30_000,
@@ -40,10 +41,10 @@ export default defineConfig({
           timeout: 60_000,
           env: {
             DEPLOYMENT_ENV: 'test',
-            AUTH_APP: 'tpl',
+            AUTH_APP: 'investment',
             APP_ORIGIN: baseURL,
-            ADMIN_BACKEND_INTERNAL_URL: `http://127.0.0.1:${pairBackendPort}`,
-            DEPLOYMENT_ID: 'p0-007e-e1-e2e',
+            BACKEND_INTERNAL_URL: `http://127.0.0.1:${pairBackendPort}`,
+            DEPLOYMENT_ID: 'arch-v2-r2-admin-e2e',
             HOSTNAME: '127.0.0.1',
             PORT: String(nextPort),
           },

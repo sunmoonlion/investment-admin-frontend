@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "SunmoonAI Admin",
-    "description": "A production Next.js administration foundation paired with a dedicated FastAPI Admin Backend.",
+    "title": "SunmoonAI Investment Admin",
+    "description": "The Investment governance console paired with the unified FastAPI Backend.",
     "loginTitle": "Administrator sign in",
     "workspaceTitle": "Governance console"
   },
@@ -36,13 +36,13 @@
     "logout": "Logout",
     "logoutFailed": "Sign out failed. Please try again.",
     "loginTitle": "Enter the administration console",
-    "loginSubtitle": "Authentication and session state belong to the paired FastAPI Admin Backend.",
+    "loginSubtitle": "Authentication and session state belong to the admin surface of the unified FastAPI Backend.",
     "loginCasdoorHint": "The browser never stores provider tokens; authorization is converted into a backend-owned session.",
     "continueToDashboard": "Already signed in? Open the governance console",
     "errorAuthFailed": "Sign-in failed. Verify the Casdoor Admin application, callback URL and backend logs.",
     "errorNoCode": "No authorization code was returned. Start sign-in again.",
     "errorOAuthGeneric": "Authorization was denied or cancelled. Please try again.",
-    "dashboardWelcome": "Welcome to SunmoonAI Admin",
+    "dashboardWelcome": "Welcome to Investment Admin",
     "signedInAs": "Administrator: {name}",
     "signupSuccessHint": "Sign-up succeeded. Sign in to enter this site."
   },
@@ -52,6 +52,7 @@
     "settings": "Settings",
     "reference": "CRUD reference",
     "richReference": "Rich capability reference",
+    "researchRuntime": "Research runtime",
     "mainNavigation": "Administration navigation",
     "breadcrumb": "Breadcrumb",
     "openTabs": "Open pages",

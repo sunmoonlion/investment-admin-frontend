@@ -12,7 +12,7 @@ export function ResearchRuntimePanel() {
         <li>Admin API: POST /api/agent/sessions</li>
         <li>Runs: POST /api/agent/sessions/&#123;id&#125;/runs + resume</li>
         <li>SSE: GET /api/agent/sessions/&#123;id&#125;/stream</li>
-        <li>Knowledge retrieval client uses sunmoonai-research-knowledge-retrieve</li>
+        <li>Knowledge retrieval client uses sunmoonai-investment-knowledge-retrieve</li>
       </ul>
     </section>
   )

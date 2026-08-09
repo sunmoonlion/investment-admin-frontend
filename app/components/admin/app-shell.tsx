@@ -71,7 +71,7 @@ export function AppShell({ children, locale, roles, userLabel }: AppShellProps) 
           <span className="admin-brand-mark" aria-hidden>
             S
           </span>
-          {!collapsed ? <strong>SunmoonAI Admin</strong> : null}
+          {!collapsed ? <strong>Investment Admin</strong> : null}
         </div>
         <nav aria-label={t('mainNavigation')} className="admin-navigation">
           {allowedNavigation.map((item) => (

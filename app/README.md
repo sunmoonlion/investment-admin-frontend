@@ -1,11 +1,12 @@
-# tpl-admin-frontend
+# investment-admin-frontend
 
-SunmoonAI 的 Next.js Admin 通用模板。它与 FastAPI `tpl-admin-backend` 组成不可拆分的
+SunmoonAI Investment 的 Next.js Admin 实例。它完整继承模板通用能力，并与统一 FastAPI
+`investment-backend` 组成不可拆分的
 发布和验收单元，提供 App Router、public/authenticated 渲染边界、next-intl、
 Tailwind/shadcn UI、同源 `/api` 接入和 Node standalone 构建。
 
-本模板只承载跨业务通用能力，不包含 Info、Knowledge 或 Research 的领域页面和 DTO。
-旧 React Router SPA 保留在独立的 `tpl-admin-frontend-react` 仓库，仅作迁移参考。
+本实例在通用能力之上承载 Investment 的研究运行时治理页面和契约。旧 React Router SPA
+仅作为历史迁移参考，不属于当前生产拓扑。
 
 ## 本地开发
 
@@ -21,7 +22,7 @@ corepack pnpm dev
 
 首次使用时，从 `.env.example` 生成未提交的 `.env.local`。浏览器 API 固定为同源
 `/api`；`DEPLOYMENT_ENV`、`AUTH_APP`、`APP_ORIGIN`、
-`ADMIN_BACKEND_INTERNAL_URL`、`DEPLOYMENT_ID` 属于 server-only 运行时契约。
+`BACKEND_INTERNAL_URL`、`DEPLOYMENT_ID` 属于 server-only 运行时契约。
 Casdoor、Redis、服务 token 或其他凭据不得进入 `NEXT_PUBLIC_*` 或前端仓库。
 
 ## 质量门禁
@@ -45,15 +46,15 @@ corepack pnpm test:e2e
   启动时验证 server-only 环境。
 - 公共首页可预渲染；管理工作区明确 dynamic/no-store/noindex。
 - 受保护页面只通过 `lib/server/auth-session.ts` 的 server-only DAL 将请求 cookie
-  和 correlation ID 转给配对 FastAPI Admin Backend，并严格解析 Browser Session
+  和 correlation ID 转给统一 FastAPI Backend 的 Admin 表面，并严格解析 Browser Session
   DTO v1。401 服务端跳转登录，其他上游或契约错误 fail closed。
 - 浏览器 logout 只使用同源 POST + CSRF，不保存第二份认证状态。
 - Admin 使用独立 `surface=admin`、audience、cookie 和 session namespace，不能复用
   Web 的身份边界。
 - 本仓库的受控 fixture 只验证前端契约和渲染；真实 Casdoor、FastAPI、双 Pod、
   滚动升级和回滚资格由 P0-007E 集成门禁验收。
-- 迁移到 Info、Knowledge、Research 时必须完整继承通用能力，再叠加领域页面；
-  不允许以“只复制安全壳”替代模板同步。
+- 后续模板同步必须保留全部通用能力与 Investment 领域扩展；不允许以“只复制安全壳”
+  替代受控同步。
 
 ## 参考
 
