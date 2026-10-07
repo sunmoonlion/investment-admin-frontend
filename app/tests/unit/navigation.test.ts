@@ -10,5 +10,12 @@ describe('admin navigation', () => {
     )
     expect(filterNavigationByRoles(['admin']).map((item) => item.key)).toContain('rich-reference')
     expect(findNavigationItem('/zh-CN/reference/details')?.key).toBe('reference')
+    // 缺数据的需求（账 56）：管理员与运营都看得到
+    for (const role of ['admin', 'operator']) {
+      expect(filterNavigationByRoles([role]).map((item) => item.key)).toContain(
+        'workbench-missing-data',
+      )
+    }
+    expect(findNavigationItem('/zh-CN/workbench/missing-data')?.key).toBe('workbench-missing-data')
   })
 })

@@ -20,6 +20,8 @@ const serverEnvSchema = z.object({
   APP_ORIGIN: httpOrigin.optional(),
   BACKEND_INTERNAL_URL: httpOrigin.optional(),
   DEPLOYMENT_ID: z.string().trim().min(1).optional(),
+  // info 管理端的地址：「缺数据的需求」页从这里链去发起采集（账 56）。不配就只给代码、不给链接
+  INFO_ADMIN_URL: httpOrigin.optional(),
 })
 
 export type ServerEnv = z.infer<typeof serverEnvSchema> & {
@@ -41,13 +43,11 @@ export function parseServerEnv(
   const parsed = serverEnvSchema.parse(input)
   const isProductionBuild = options.phase === PHASE_PRODUCTION_BUILD
   const allowLocalDefaults = parsed.NODE_ENV !== 'production' || isProductionBuild
-  const deploymentEnv =
-    parsed.DEPLOYMENT_ENV ?? (allowLocalDefaults ? 'development' : undefined)
+  const deploymentEnv = parsed.DEPLOYMENT_ENV ?? (allowLocalDefaults ? 'development' : undefined)
 
   const appOrigin = parsed.APP_ORIGIN ?? (allowLocalDefaults ? 'http://localhost:3000' : undefined)
   const backendInternalUrl =
-    parsed.BACKEND_INTERNAL_URL ??
-    (allowLocalDefaults ? 'http://127.0.0.1:8000' : undefined)
+    parsed.BACKEND_INTERNAL_URL ?? (allowLocalDefaults ? 'http://127.0.0.1:8000' : undefined)
   const deploymentId = parsed.DEPLOYMENT_ID ?? (allowLocalDefaults ? 'local' : undefined)
   const authApp = parsed.AUTH_APP ?? (allowLocalDefaults ? 'investment' : undefined)
 
@@ -57,7 +57,9 @@ export function parseServerEnv(
     )
   }
   if (deploymentEnv === 'production' && !appOrigin.startsWith('https://')) {
-    throw new Error('Invalid server environment: APP_ORIGIN must use HTTPS in a production deployment')
+    throw new Error(
+      'Invalid server environment: APP_ORIGIN must use HTTPS in a production deployment',
+    )
   }
   if (
     deploymentEnv === 'test' &&

@@ -2,6 +2,7 @@ import {
   ChartNoAxesCombined,
   Gauge,
   Cpu,
+  Inbox,
   Settings,
   TableProperties,
   type LucideIcon,
@@ -10,7 +11,13 @@ import {
 export type AdminNavigationItem = {
   key: string
   path: string
-  labelKey: 'dashboard' | 'reference' | 'richReference' | 'settings' | 'researchRuntime'
+  labelKey:
+    | 'dashboard'
+    | 'reference'
+    | 'richReference'
+    | 'settings'
+    | 'researchRuntime'
+    | 'workbenchMissingData'
   icon: LucideIcon
   requiredRoles?: readonly string[]
   pinned?: boolean
@@ -25,13 +32,21 @@ export const adminNavigation: readonly AdminNavigationItem[] = [
     pinned: true,
   },
 
-{
-  key: 'research-runtime',
-  path: '/research/runtime',
-  labelKey: 'researchRuntime',
-  icon: Cpu,
-  requiredRoles: ['admin', 'operator'],
-},
+  // 缺数据的需求（账 56）：用户查不到的公司汇总，由我们决定采不采
+  {
+    key: 'workbench-missing-data',
+    path: '/workbench/missing-data',
+    labelKey: 'workbenchMissingData',
+    icon: Inbox,
+    requiredRoles: ['admin', 'operator'],
+  },
+  {
+    key: 'research-runtime',
+    path: '/research/runtime',
+    labelKey: 'researchRuntime',
+    icon: Cpu,
+    requiredRoles: ['admin', 'operator'],
+  },
   {
     key: 'reference',
     path: '/reference',

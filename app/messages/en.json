@@ -61,7 +61,8 @@
     "expandMenu": "Expand navigation",
     "closeTab": "Close {name}",
     "governance": "Administration capability migration",
-    "governanceDescription": "P0-007E will add navigation, authorization, CRUD, audit and shared tooling on this foundation."
+    "governanceDescription": "P0-007E will add navigation, authorization, CRUD, audit and shared tooling on this foundation.",
+    "workbenchMissingData": "Missing data demand"
   },
   "settings": {
     "title": "Interface settings",
@@ -87,5 +88,21 @@
   "ResearchRuntime": {
     "title": "Research runtime",
     "description": "Research Admin Runtime/Agent control surface (minimal shell)"
+  },
+  "demand": {
+    "title": "Missing data demand",
+    "lead": "Companies users could not find data for, grouped by code: how many times, how many people, the latest time and the datasets asked for. Aggregated only; it never says who asked. We decide what to collect.",
+    "howToStart": "To collect one, click “Start ingestion”: it opens the info console's Securities page with the code filled in; press “Start ingestion” there.",
+    "infoAdminUnset": "The info console URL (INFO_ADMIN_URL) is not configured: only codes are listed here; start ingestions by hand on the info console's Securities page.",
+    "loading": "Loading…",
+    "failed": "Could not load. Try again later.",
+    "none": "Nobody has run into missing data yet.",
+    "code": "Security code",
+    "times": "Times",
+    "users": "People",
+    "lastAt": "Latest",
+    "datasets": "Datasets asked for",
+    "noDataset": "(an expert step reported it is not ingested)",
+    "start": "Start ingestion"
   }
 }
