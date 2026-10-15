@@ -5,7 +5,7 @@ import { useFormatter, useLocale, useTranslations } from 'next-intl'
 import { useMissingData } from '../api/demand'
 import { ingestionHref, marketLabel } from '../model/demand'
 
-// 缺数据的需求（账 56）：各用户查不到数据的公司，按代码汇总；采不采由我们定，采集在 info 管理端发起。
+// 缺数据的需求（账 56）：各用户查不到数据的公司，按代码汇总；采不采由我们定，采集在 knowfeed 管理端发起。
 export function DemandPanel({ infoAdminUrl }: { infoAdminUrl: string | null }) {
   const t = useTranslations('demand')
   const format = useFormatter()

@@ -92,8 +92,8 @@
   "demand": {
     "title": "缺数据的需求",
     "lead": "用户在对话里查不到数据的公司，按代码汇总：几次、几个人、最近一次、被查的数据集。只汇总，不说是谁查的。采不采由我们定。",
-    "howToStart": "要采某一家，点「去发起采集」：到 info 管理端的「证券采集」页，代码已填好，按「发起采集」。",
-    "infoAdminUnset": "info 管理端的地址（INFO_ADMIN_URL）没有配：这里只列代码，到 info 管理端的「证券采集」页手动发起。",
+    "howToStart": "要采某一家，点「去发起采集」：到 knowfeed 管理端的「证券采集」页，代码已填好，按「发起采集」。",
+    "infoAdminUnset": "knowfeed 管理端的地址（KNOWFEED_ADMIN_URL）没有配：这里只列代码，到 knowfeed 管理端的「证券采集」页手动发起。",
     "loading": "加载中…",
     "failed": "没有取到，请稍后再试。",
     "none": "还没有人查不到数据。",

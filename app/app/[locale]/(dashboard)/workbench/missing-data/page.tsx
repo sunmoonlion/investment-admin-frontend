@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <h1 className="text-2xl font-semibold">{t('title')}</h1>
         <p className="text-muted-foreground">{t('lead')}</p>
       </div>
-      <DemandPanel infoAdminUrl={serverEnv.INFO_ADMIN_URL ?? null} />
+      <DemandPanel infoAdminUrl={serverEnv.KNOWFEED_ADMIN_URL ?? null} />
     </div>
   )
 }

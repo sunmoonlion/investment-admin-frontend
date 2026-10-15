@@ -54,8 +54,8 @@ function page(infoAdminUrl: string | null) {
 }
 
 describe('缺数据的需求', () => {
-  it('每家公司一行：几次、几个人、最近一次、被查的数据集；一键去 info 管理端发起', async () => {
-    page('https://info-admin.example.test')
+  it('每家公司一行：几次、几个人、最近一次、被查的数据集；一键去 knowfeed 管理端发起', async () => {
+    page('https://knowfeed-admin.example.test')
     const table = await screen.findByRole('table', { name: '缺数据的需求' })
     const rows = within(table).getAllByRole('row').slice(1)
     expect(rows).toHaveLength(2)
@@ -69,30 +69,30 @@ describe('缺数据的需求', () => {
     const link = moutai.getByRole('link', { name: '去发起采集' })
     expect(link).toHaveAttribute(
       'href',
-      'https://info-admin.example.test/zh-CN/info/securities?code=600519',
+      'https://knowfeed-admin.example.test/zh-CN/knowfeed/securities?code=600519',
     )
     expect(link).toHaveAttribute('target', '_blank')
     // 专家交回说没入库的：没有数据集名，不留空
     expect(within(rows[0]).getByText('（专家交回说没入库）')).toBeInTheDocument()
   })
 
-  it('info 管理端的地址没配：说明原因，只列代码，不给点不了的链接', async () => {
+  it('knowfeed 管理端的地址没配：说明原因，只列代码，不给点不了的链接', async () => {
     page(null)
     await screen.findByRole('table', { name: '缺数据的需求' })
-    expect(screen.getByText(/INFO_ADMIN_URL/)).toBeInTheDocument()
+    expect(screen.getByText(/KNOWFEED_ADMIN_URL/)).toBeInTheDocument()
     expect(screen.queryByRole('link', { name: '去发起采集' })).toBeNull()
   })
 
   it('还没有人查不到：说一句，不画空表', async () => {
     answer = () => Response.json({ items: [] })
-    page('https://info-admin.example.test')
+    page('https://knowfeed-admin.example.test')
     expect(await screen.findByRole('status')).toHaveTextContent('还没有人查不到数据。')
     expect(screen.queryByRole('table')).toBeNull()
   })
 
   it('取不到：说没有取到', async () => {
     answer = () => new Response('{}', { status: 503 })
-    page('https://info-admin.example.test')
+    page('https://knowfeed-admin.example.test')
     expect(await screen.findByRole('alert')).toHaveTextContent('没有取到，请稍后再试。')
   })
 })
