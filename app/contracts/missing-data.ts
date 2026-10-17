@@ -1,4 +1,4 @@
-// 缺数据的需求的契约（账 56）。字段以 investment-backend `interfaces/http/admin/missing_data.py` 为真源。
+// 缺数据的需求的契约（账 56）。字段以 knowbench-backend `interfaces/http/admin/missing_data.py` 为真源。
 import { z } from 'zod'
 
 export const missingDataItemSchema = z

@@ -6,7 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { DemandPanel } from '@/features/demand'
 import messages from '@/messages/zh-CN.json'
 
-// 后端按代码汇总好的样子（investment-backend `admin/missing_data.py`）
+// 后端按代码汇总好的样子（knowbench-backend `admin/missing_data.py`）
 const summary = {
   items: [
     {

@@ -5,7 +5,7 @@ const nextPort = Number(process.env.NEXT_PORT ?? 3008)
 const externalBaseURL = process.env.PLAYWRIGHT_BASE_URL
 const baseURL = externalBaseURL ?? `http://127.0.0.1:${gatewayPort}`
 const pairBackendPort = Number(process.env.PAIR_FIXTURE_PORT ?? 18080)
-const pairBackendProject = process.env.PAIR_BACKEND_PROJECT ?? '../../investment-backend/app'
+const pairBackendProject = process.env.PAIR_BACKEND_PROJECT ?? '../../knowbench-backend/app'
 const reuseExistingServer = process.env.PLAYWRIGHT_REUSE_SERVER === '1'
 
 export default defineConfig({
@@ -41,7 +41,7 @@ export default defineConfig({
           timeout: 60_000,
           env: {
             DEPLOYMENT_ENV: 'test',
-            AUTH_APP: 'investment',
+            AUTH_APP: 'knowbench',
             APP_ORIGIN: baseURL,
             BACKEND_INTERNAL_URL: `http://127.0.0.1:${pairBackendPort}`,
             DEPLOYMENT_ID: 'arch-v2-r2-admin-e2e',

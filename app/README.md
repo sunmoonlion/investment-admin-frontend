@@ -1,11 +1,11 @@
-# investment-admin-frontend
+# knowbench-admin-frontend
 
-SunmoonAI Investment 的 Next.js Admin 实例。它完整继承模板通用能力，并与统一 FastAPI
-`investment-backend` 组成不可拆分的
+SunmoonAI Knowbench 的 Next.js Admin 实例。它完整继承模板通用能力，并与统一 FastAPI
+`knowbench-backend` 组成不可拆分的
 发布和验收单元，提供 App Router、public/authenticated 渲染边界、next-intl、
 Tailwind/shadcn UI、同源 `/api` 接入和 Node standalone 构建。
 
-本实例在通用能力之上承载 Investment 的研究运行时治理页面和契约。旧 React Router SPA
+本实例在通用能力之上承载 Knowbench 的研究运行时治理页面和契约。旧 React Router SPA
 仅作为历史迁移参考，不属于当前生产拓扑。
 
 ## 本地开发
@@ -53,7 +53,7 @@ corepack pnpm test:e2e
   Web 的身份边界。
 - 本仓库的受控 fixture 只验证前端契约和渲染；真实 Casdoor、FastAPI、双 Pod、
   滚动升级和回滚资格由 P0-007E 集成门禁验收。
-- 后续模板同步必须保留全部通用能力与 Investment 领域扩展；不允许以“只复制安全壳”
+- 后续模板同步必须保留全部通用能力与 Knowbench 领域扩展；不允许以“只复制安全壳”
   替代受控同步。
 
 ## 参考

@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "SunmoonAI Investment Admin",
-    "description": "The Investment governance console paired with the unified FastAPI Backend.",
+    "title": "SunmoonAI Knowbench Admin",
+    "description": "The Knowbench governance console paired with the unified FastAPI Backend.",
     "loginTitle": "Administrator sign in",
     "workspaceTitle": "Governance console"
   },
@@ -42,7 +42,7 @@
     "errorAuthFailed": "Sign-in failed. Verify the Casdoor Admin application, callback URL and backend logs.",
     "errorNoCode": "No authorization code was returned. Start sign-in again.",
     "errorOAuthGeneric": "Authorization was denied or cancelled. Please try again.",
-    "dashboardWelcome": "Welcome to Investment Admin",
+    "dashboardWelcome": "Welcome to Knowbench Admin",
     "signedInAs": "Administrator: {name}",
     "signupSuccessHint": "Sign-up succeeded. Sign in to enter this site."
   },

@@ -5,7 +5,7 @@ import { PlatformProviders } from '@/components/platform/providers'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'SunmoonAI Investment Admin',
+  title: 'SunmoonAI Knowbench Admin',
   description: 'SunmoonAI administration console',
 }
 
